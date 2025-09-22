@@ -69,6 +69,24 @@ const createQuadrinho = (req, res) => {
     })
 }
 
+const deleteQuadrinho = (req, res) => {
+    let id = parseInt(req.params.id);
+    const quadrinhoParaRemover = quadrinho.find(q => q.id === id);
+
+    if (!quadrinhoParaRemover) {
+        return res.status(404).json({
+            success: false,
+            message: 'Este quadrinho nao existe'
+        })
+    }
+    const quadrinhosFiltrados = quadrinhos.filter(carta => carta.id !== id);
+    quadrinhos.splice(0, quadrinhos.length, ...quadrinhosFiltrados);
+    res.status(200).json({
+        success: true,
+        message: 'Quadrinho deletado com sucesso',
+        cartaRemovida: cartaParaRemover
+    })
+}
 
 
 export { getAllQuadrinhos, getQuadrinhosById, getQuadrinhosByEditora, createQuadrinho, deleteQuadrinho };
