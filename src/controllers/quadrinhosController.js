@@ -174,7 +174,7 @@ const updateQuadrinho = (req, res) => {
 
 const deleteQuadrinho = (req, res) => {
     let id = parseInt(req.params.id);
-    const quadrinhoParaRemover = quadrinho.find(q => q.id === id);
+    const quadrinhoParaRemover = quadrinhos.find(q => q.id === id);
 
     if (!quadrinhoParaRemover) {
         return res.status(404).json({
