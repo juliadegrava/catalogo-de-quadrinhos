@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
 
 app.use("/quadrinhos", quadrinhosRoutes);
 
+
 app.listen(serverPort, () => {
     console.log(` Servidor rodando em http://localhost:${serverPort} `);
 });
